@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  fastapi:
+    build: .
+    container_name: electronics-python-fastapi-app
+    ports:
+      - "9001:9001"
+    networks:
+      - docker_network
+    restart: always
+networks:
+  docker_network:
+    driver: bridge

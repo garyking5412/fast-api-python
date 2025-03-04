@@ -13,14 +13,14 @@ class CategoryRequest(BaseModel):
     detail: str
     products: List[ProductRequest]
 
-class ProductResponse:
+class ProductResponse(BaseModel):
     id: int
     name: str
     detail: str
     image: str
     price: int
 
-class CategoryResponse:
+class CategoryResponse(BaseModel):
     id: int
     name: str
     detail: str
