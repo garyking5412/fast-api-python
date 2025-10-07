@@ -1,7 +1,5 @@
-from fastapi import HTTPException
+from fastapi import FastAPI, HTTPException, Depends, Query, Path
 from typing import Annotated, List
-
-from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
 
 from models.models import *
@@ -20,7 +18,7 @@ def get_db() -> Session:
     finally:
         db.close()
 
-db_dependency = Annotated[Session,Depends(get_db)]
+db_dependency = Annotated[Session,Query(description="Search query string"), Depends(get_db)]
 
 def test_exception(exception):
     raise HTTPException(status_code=500, detail=f"Failed to establish Database connection >>> Error: {exception}")
