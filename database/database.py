@@ -7,8 +7,8 @@ from sqlalchemy.ext.declarative import declarative_base
 #     def __table_args__(cls):
 #         return {'schema': 'local'}
 
-DATABASE = "postgresql://postgres:2716@host.docker.internal:5432/postgres"
-SCHEMA = "local"
+DATABASE = "postgresql://postgres:2716@localhost:5432/postgres"
+SCHEMA = "public"
 DATABASE_URL = f"{DATABASE}?options=-c%20search_path={SCHEMA}"
 engine = create_engine(DATABASE_URL)
 # Base = declarative_base(cls=BaseWithSchema)
